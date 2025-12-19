@@ -495,7 +495,9 @@ function App() {
   const containerRef = useRef(null);
   useEffect(() => {
     window.websim.getCurrentUser().then(setCurrentUser);
-    lucide.createIcons();
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
   }, []);
   const handleMouseMove = (e) => {
     if (!room) return;
@@ -506,7 +508,7 @@ function App() {
   };
   if (!isConnected) return /* @__PURE__ */ jsxDEV("div", { className: "h-screen w-full flex items-center justify-center text-slate-500 animate-pulse", children: "Connecting to Websim..." }, void 0, false, {
     fileName: "<stdin>",
-    lineNumber: 284,
+    lineNumber: 286,
     columnNumber: 9
   }, this);
   return /* @__PURE__ */ jsxDEV("div", { className: "flex flex-col h-full max-w-6xl mx-auto p-4 gap-4", children: [
@@ -514,13 +516,13 @@ function App() {
       /* @__PURE__ */ jsxDEV("div", { children: [
         /* @__PURE__ */ jsxDEV("h1", { className: "text-xl font-bold text-white", children: "SDK Showcase" }, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 295,
+          lineNumber: 297,
           columnNumber: 21
         }, this),
         /* @__PURE__ */ jsxDEV("div", { className: "flex items-center gap-2 mt-1", children: [
           /* @__PURE__ */ jsxDEV("span", { className: "w-2 h-2 bg-green-500 rounded-full animate-pulse" }, void 0, false, {
             fileName: "<stdin>",
-            lineNumber: 297,
+            lineNumber: 299,
             columnNumber: 25
           }, this),
           /* @__PURE__ */ jsxDEV("span", { className: "text-xs text-slate-400", children: [
@@ -528,24 +530,24 @@ function App() {
             " Peer(s) Online"
           ] }, void 0, true, {
             fileName: "<stdin>",
-            lineNumber: 298,
+            lineNumber: 300,
             columnNumber: 25
           }, this)
         ] }, void 0, true, {
           fileName: "<stdin>",
-          lineNumber: 296,
+          lineNumber: 298,
           columnNumber: 21
         }, this)
       ] }, void 0, true, {
         fileName: "<stdin>",
-        lineNumber: 294,
+        lineNumber: 296,
         columnNumber: 17
       }, this),
       currentUser && /* @__PURE__ */ jsxDEV("div", { className: "flex items-center gap-3 bg-slate-900/50 px-3 py-2 rounded-lg border border-slate-700/50", children: [
         /* @__PURE__ */ jsxDEV("div", { className: "text-right hidden sm:block", children: [
           /* @__PURE__ */ jsxDEV("div", { className: "text-xs text-slate-400", children: "Logged in as" }, void 0, false, {
             fileName: "<stdin>",
-            lineNumber: 305,
+            lineNumber: 307,
             columnNumber: 29
           }, this),
           /* @__PURE__ */ jsxDEV("div", { className: "font-bold text-sm text-blue-400", children: [
@@ -553,12 +555,12 @@ function App() {
             currentUser.username
           ] }, void 0, true, {
             fileName: "<stdin>",
-            lineNumber: 306,
+            lineNumber: 308,
             columnNumber: 29
           }, this)
         ] }, void 0, true, {
           fileName: "<stdin>",
-          lineNumber: 304,
+          lineNumber: 306,
           columnNumber: 25
         }, this),
         /* @__PURE__ */ jsxDEV(
@@ -572,19 +574,19 @@ function App() {
           false,
           {
             fileName: "<stdin>",
-            lineNumber: 308,
+            lineNumber: 310,
             columnNumber: 25
           },
           this
         )
       ] }, void 0, true, {
         fileName: "<stdin>",
-        lineNumber: 303,
+        lineNumber: 305,
         columnNumber: 21
       }, this)
     ] }, void 0, true, {
       fileName: "<stdin>",
-      lineNumber: 293,
+      lineNumber: 295,
       columnNumber: 13
     }, this),
     /* @__PURE__ */ jsxDEV("div", { className: "flex-1 flex flex-col md:flex-row gap-4 min-h-0", children: [
@@ -609,7 +611,7 @@ function App() {
               false,
               {
                 fileName: "<stdin>",
-                lineNumber: 332,
+                lineNumber: 334,
                 columnNumber: 21
               },
               this
@@ -617,59 +619,59 @@ function App() {
             /* @__PURE__ */ jsxDEV("div", { className: "p-4 relative z-10", children: [
               /* @__PURE__ */ jsxDEV("div", { className: "inline-block bg-blue-600/20 text-blue-300 text-xs px-2 py-1 rounded mb-4 font-mono", children: "Interactive Zone (Move Cursor Here)" }, void 0, false, {
                 fileName: "<stdin>",
-                lineNumber: 337,
+                lineNumber: 339,
                 columnNumber: 25
               }, this),
               /* @__PURE__ */ jsxDEV(SharedSwitch, { room, roomState }, void 0, false, {
                 fileName: "<stdin>",
-                lineNumber: 341,
+                lineNumber: 343,
                 columnNumber: 25
               }, this),
               /* @__PURE__ */ jsxDEV("div", { className: "bg-slate-900/80 backdrop-blur p-4 rounded-lg border border-slate-700", children: [
                 /* @__PURE__ */ jsxDEV("h3", { className: "font-bold text-white mb-2 text-sm flex items-center gap-2", children: [
                   /* @__PURE__ */ jsxDEV("i", { "data-lucide": "info", className: "w-4 h-4" }, void 0, false, {
                     fileName: "<stdin>",
-                    lineNumber: 345,
+                    lineNumber: 347,
                     columnNumber: 33
                   }, this),
                   "How Presence Works"
                 ] }, void 0, true, {
                   fileName: "<stdin>",
-                  lineNumber: 344,
+                  lineNumber: 346,
                   columnNumber: 29
                 }, this),
                 /* @__PURE__ */ jsxDEV("p", { className: "text-xs text-slate-400 leading-relaxed", children: [
                   "Move your mouse/finger in this box. Your position is broadcast via",
                   /* @__PURE__ */ jsxDEV("span", { className: "text-blue-400 font-mono mx-1", children: "room.updatePresence()" }, void 0, false, {
                     fileName: "<stdin>",
-                    lineNumber: 350,
+                    lineNumber: 352,
                     columnNumber: 33
                   }, this),
                   ". Other users' cursors are rendered by reading",
                   /* @__PURE__ */ jsxDEV("span", { className: "text-green-400 font-mono mx-1", children: "room.presence" }, void 0, false, {
                     fileName: "<stdin>",
-                    lineNumber: 352,
+                    lineNumber: 354,
                     columnNumber: 33
                   }, this),
                   "."
                 ] }, void 0, true, {
                   fileName: "<stdin>",
-                  lineNumber: 348,
+                  lineNumber: 350,
                   columnNumber: 29
                 }, this)
               ] }, void 0, true, {
                 fileName: "<stdin>",
-                lineNumber: 343,
+                lineNumber: 345,
                 columnNumber: 25
               }, this)
             ] }, void 0, true, {
               fileName: "<stdin>",
-              lineNumber: 336,
+              lineNumber: 338,
               columnNumber: 21
             }, this),
             /* @__PURE__ */ jsxDEV(CursorLayer, { room, peers, presence }, void 0, false, {
               fileName: "<stdin>",
-              lineNumber: 358,
+              lineNumber: 360,
               columnNumber: 21
             }, this)
           ]
@@ -678,7 +680,7 @@ function App() {
         true,
         {
           fileName: "<stdin>",
-          lineNumber: 321,
+          lineNumber: 323,
           columnNumber: 17
         },
         this
@@ -686,41 +688,41 @@ function App() {
       /* @__PURE__ */ jsxDEV("div", { className: "flex-1 flex flex-col gap-4 min-h-0", children: [
         /* @__PURE__ */ jsxDEV("div", { className: "flex-1 min-h-[300px]", children: /* @__PURE__ */ jsxDEV(DatabaseGuestbook, {}, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 364,
+          lineNumber: 366,
           columnNumber: 25
         }, this) }, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 363,
+          lineNumber: 365,
           columnNumber: 21
         }, this),
         /* @__PURE__ */ jsxDEV("div", { className: "h-1/3 bg-slate-900 p-4 rounded-xl border border-slate-800 shadow-inner", children: /* @__PURE__ */ jsxDEV(InfoPanel, {}, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 367,
+          lineNumber: 369,
           columnNumber: 25
         }, this) }, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 366,
+          lineNumber: 368,
           columnNumber: 21
         }, this)
       ] }, void 0, true, {
         fileName: "<stdin>",
-        lineNumber: 362,
+        lineNumber: 364,
         columnNumber: 17
       }, this)
     ] }, void 0, true, {
       fileName: "<stdin>",
-      lineNumber: 318,
+      lineNumber: 320,
       columnNumber: 13
     }, this)
   ] }, void 0, true, {
     fileName: "<stdin>",
-    lineNumber: 290,
+    lineNumber: 292,
     columnNumber: 9
   }, this);
 }
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(/* @__PURE__ */ jsxDEV(App, {}, void 0, false, {
   fileName: "<stdin>",
-  lineNumber: 377,
+  lineNumber: 379,
   columnNumber: 13
 }));
